@@ -1,4 +1,3 @@
-
 function Circle(r){
 var raggio = r;
 }
@@ -28,19 +27,4 @@ var point
 
 distance getdistance(input un punto e calcola la distanza con il punto stesso)
 
-creo poi triangolo che prende 3 punti in costruttore. getperimetro e area (con formula di erone).
-
-
-function point(x,y){
-this.x = x;
-this.y = y;
-}
-
-point.prototype.getDistance(point){
-if(this.x>point.x) X = this.x-point.x;
-else X = point.x - this.x;
-if(this.y>point.y) Y = this.y-point.y;
-else X = point.y - this.y;
-return 
-}
-
+creo poi triangolo che prende 3 punti in costruttore. getperimetro e area (con formula di erone)
