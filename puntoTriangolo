@@ -1,6 +1,7 @@
 function Punto(x,y){
-this.x = x;
-this.y = y;
+//se sono undefined valgono 0
+this.x = x || 0;
+this.y = y || 0; 
 }
 
 Punto.prototype.getDistance = function(punto){
@@ -10,7 +11,14 @@ return Math.sqrt(Math.pow((this.x-punto.x),2) + Math.pow((this.y-punto.y),2));
 Punto.prototype.translate = function(dx,dy){
 this.x+=dx;
 this.y+=dy;
+return this;
 }
+
+function randomPoint(){
+var random = new Punto(Math.round(Math.random()*200 - 100),Math.round(Math.random()*200-100));
+return random;
+}
+
 
 function Triangolo (v1,v2,v3){
 this.v1 = v1;
