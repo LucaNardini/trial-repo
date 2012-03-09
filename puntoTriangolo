@@ -14,9 +14,11 @@ this.y+=dy;
 return this;
 }
 
+var random = Math.random;
+var round = Math.round;
+
 function randomPoint(){
-var random = new Punto(Math.round(Math.random()*200 - 100),Math.round(Math.random()*200-100));
-return random;
+return new Punto(round((random()*200 - 100),round(random()*200-100));
 }
 
 
