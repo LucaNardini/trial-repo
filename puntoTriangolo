@@ -18,7 +18,22 @@ var random = Math.random;
 var round = Math.round;
 
 function randomPoint(){
-return new Punto(round((random()*200 - 100),round(random()*200-100));
+return new Punto(round(random()*200 - 100),round(random()*200-100));
+}
+
+function generaRandomArray(n){
+this.m = n || 100;
+var a = new Array();
+for (i = 0; i<m; ++i){
+a.push(randomPoint());
+}
+return a;
+}
+
+//generare funzione che prende semipiano positivi sopra bisettrice del primo e terzo quadrante e filtra tutti i punti
+
+function filtroSemipiano(array){
+return array.filter(function(item,index,array){item.y - item.x>=0;});
 }
 
 
