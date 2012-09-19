@@ -35,9 +35,8 @@
 
 <h3>Introduction</h3>
 
-<p>Villa Foscari is a Patrician Villa in Mira, near Venice, northern Italy, designed by the Italian architect Andrea Palladio. </p>
-
-<p>It is also known as La Malcontenta, a nickname which it received when the spouse of one of the Foscaris was locked up in the house because she allegedly didn't live up to her conjugal duty.</p>
+<p>Villa Foscari is a Patrician Villa in Mira, near Venice, northern Italy, designed by the Italian architect Andrea Palladio.<br>
+It is also known as La Malcontenta, a nickname which it received when the spouse of one of the Foscaris was locked up in the house because she allegedly didn't live up to her conjugal duty.</p>
 
 <p>More informations and tips can be found at:
 1. <a href="http://en.wikipedia.org/wiki/Villa_Foscari">Wikipedia</a>
@@ -45,40 +44,43 @@
 
 <h3>Hierarchical decomposition of the model</h3>
 
-<p>During to approach to the creation of three-dimensional model, we chose to hierarchically decompose the structure of the villa into five-plus-one parts:</p>
+<p>During to approach to the creation of three-dimensional model, we chose to hierarchically decompose the structure of the villa into five-plus-one contexts:</p>
 
 <ul>
-<li><strong>The Twin Stairs and the Colonnade-Basement</strong></li>
+<li><strong>The Front Basement: The Twin Stairs and the Colonnade-Basement</strong></li>
 <li><strong>The Main Building</strong></li>
 <li>
-<strong>The Colonnade</strong> <em>(better, A column)</em>
+<strong>The Colonnade</strong> <em>(precisely, A column)</em>
 </li>
-<li><strong>The Main Roof and the Roof upon the Colonnade</strong></li>
-<li><strong>The Back-Side of the Villa</strong></li>
+<li><strong>The Front-Side of the Villa: The Main Roof and the Tympanum</strong></li>
+<li><strong>The Back-Side of the Villa : Circular Glass</strong></li>
 <li>
-<strong>All the other stuff</strong> <em>(such as windows, banisters, gratings...)</em>
+<strong>All the other stuff</strong> <em>(such as windows, banisters, gratings and chimneypots)</em>
 </li>
-</ul><h3>Twin Stairs and Colonnade-Basement</h3>
+</ul><p><em>Please note:</em> the code has been implemented with <code>export</code> functions, which means each of such contexts it's independent from others and can be drawn singularly.</p>
+
+<h3>Twin Stairs and Colonnade-Basement</h3>
 
 <p>Due its symmetrical nature, Villa Foscari can be split in a right-half and a left-half.</p>
 
-<p>Let's concentrate on the last one, because we'll obtain the other half simply with a <code>S</code> trasformation.
-Moreover Rotational trasformations, <code>R</code>, are used to create the upper side of the stairs and due its squareness, we'll use mostly <code>CUBOID</code> functions.</p>
+<p>If we focus on the last one, we'll obtain the other half simply with a <code>S</code> trasformation.
+Moreover, Rotational trasformations, <code>R</code>, are used to create the upper side of the stairs and due its squareness, we'll use mostly <code>CUBOID</code> functions.</p>
 
-<p><img src="http://s18.postimage.org/dzyvu1q53/Schermata_07_2456127_alle_19_27_24.png" alt="The Twin Stairs">
+<p>TS Photo
 The same trick can be used to draw the Colonnade_Basement, which is exactly between the twin stairs.
-<img src="http://s15.postimage.org/5j9xwt7bd/Schermata_07_2456127_alle_19_38_11.png" alt="Colonnade_Basement"></p>
+ColonnadeBasement Photo</p>
 
 <p>Here you can see the final result, combining the stairs and the basement.
-<img src="http://s16.postimage.org/suueyi40z/Schermata_07_2456127_alle_19_40_57.png" alt="Result"></p>
+TS+CB Photo</p>
 
 <h3>Main Building</h3>
 
-<p><img src="http://desmond.imageshack.us/Himg72/scaled.php?server=72&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Main-Building"></p>
+<p>Explain the Main Building
+MB Photo</p>
 
 <h3>The Colonnade</h3>
 
-<p>The colonnade is the most complex part of the project as it was decided to model the capital as an Archimedean spiral drawn by a NUBS (Archimedean spiral). It was also used a light-domain to avoid overloading the global model.</p>
+<p>The colonnade is the most complex part of the project as it was decided to model the capital as an Archimedean spiral drawn by a <code>NUBS</code> (Archimedean spiral). It was also used a light-domain to avoid overloading the global model.</p>
 
 <p>To draw the column instead, we chose to adopt divide-and-conquer-approach:</p>
 
@@ -92,7 +94,7 @@ The same trick can be used to draw the Colonnade_Basement, which is exactly betw
 <em>Column-Capital</em> still with <code>NUBS</code> <code>ROTATIONAL SURFACE</code> and <code>BEZIER</code>
 <img src="http://desmond.imageshack.us/Himg805/scaled.php?server=805&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Column">
 </li>
-</ul><p>The entire Colonnade, which is basically a column replicated and then translated through the function REPLICA, counts ten columns.</p>
+</ul><p>The entire Colonnade, which is basically a column replicated and then translated through the function REPLICA, counts ten columns advisably placed upon the Colonnade Basement.</p>
 
 <p><img src="http://desmond.imageshack.us/Himg507/scaled.php?server=507&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Colonnade"></p>
 
@@ -101,16 +103,15 @@ The same trick can be used to draw the Colonnade_Basement, which is exactly betw
 <p>The roof upon the colonnade has been modeled with <code>CUBOID</code> roto-traslated.
 The Main Roof counts a <code>SCALE</code> colonnade-roof, combined with 2*<code>CUBOID</code> and 2*<code>TRIANGLE_DOMAIN</code> advisably rotated and translated.</p>
 
-<p><img src="http://desmond.imageshack.us/Himg857/scaled.php?server=857&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Roof"></p>
-
-<p><img src="http://desmond.imageshack.us/Himg600/scaled.php?server=600&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Roof"></p>
+<p>NewRoofPhoto</p>
 
 <h3>The Back_Side of the Villa</h3>
 
 <p>With its circular glass, along with its asymmetrical facade, the back-side of the villa is one of the most complex part of the model.
-The glass has been modeled by a <code>DISK</code>, surrounded by <code>CUBOID</code> on all its perimeter.
-The glass just above the circular one, has been modeled by a <code>2D DOMAIN</code> and a <code>TRIANGLE_DOMAIN</code>.
-<img src="http://desmond.imageshack.us/Himg444/scaled.php?server=444&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Back_Side"></p>
+The glass has been modeled as ....
+The glass just above the circular one, has been modeled by a <code>2D DOMAIN</code> and a <code>TRIANGLE_DOMAIN</code>.</p>
+
+<p>/<em>BackSide Photo</em>/</p>
 
 <h3>Last but not least: All the other stuff</h3>
 
@@ -123,21 +124,17 @@ The glass just above the circular one, has been modeled by a <code>2D DOMAIN</co
 <li><p><strong><em>Windows and Shutters</em></strong> 
 <img src="http://desmond.imageshack.us/Himg594/scaled.php?server=594&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Window"></p></li>
 <li><p><strong><em>Chimneys-pot upon the Main roof</em></strong></p></li>
-</ul><p><img src="http://desmond.imageshack.us/Himg13/scaled.php?server=13&amp;filename=schermata072456127alle2.png&amp;res=landing" alt="Chimneys-pot"></p>
+</ul><p>/*New CP Photo */</p>
 
 <h3>Final View</h3>
 
 <p>The complete model, as a result of the union of each hierarchical level, is as follows:</p>
 
-<p><img src="http://desmond.imageshack.us/Himg62/scaled.php?server=62&amp;filename=c1a0228534e542c0b1963f6.png&amp;res=landing" alt="Final View"></p>
-
 <h3>More Comparisons</h3>
 
 <ul>
-<li><p><em>The Back-Side of the Villa</em>
-<img src="http://desmond.imageshack.us/Himg213/scaled.php?server=213&amp;filename=collage1q.png&amp;res=landing" alt="The Back-Side of the Foscari's Villa"></p></li>
-<li><p><em>A view of the Villa</em>
-<img src="http://desmond.imageshack.us/Himg580/scaled.php?server=580&amp;filename=e095c50f8786457786b0ed1.jpg&amp;res=landing" alt="View 2"></p></li>
+<li><p><em>The Back-Side of the Villa</em></p></li>
+<li><p><em>A view of the Villa</em></p></li>
 </ul>
       </section>
     </div>
